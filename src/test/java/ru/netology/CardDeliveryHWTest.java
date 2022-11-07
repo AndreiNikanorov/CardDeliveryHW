@@ -1,6 +1,7 @@
 package ru.netology;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -9,10 +10,8 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 
 public class CardDeliveryHWTest {
@@ -23,9 +22,9 @@ public class CardDeliveryHWTest {
 
     @Test
     void shouldSend() {
-        //Configuration.holdBrowserOpen=true;
+//        Configuration.holdBrowserOpen=true;
         open("http://localhost:9999");
-        String planningDate = searchDate(3);
+        String planningDate = searchDate(300);
 
         $("[data-test-id=\"city\"] input.input__control").setValue("Петропавловск-Камчатский");
         $("[placeholder=\"Дата встречи\"]").doubleClick().sendKeys(Keys.DELETE);
