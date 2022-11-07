@@ -26,9 +26,9 @@ public class CardDeliveryHWTest {
         open("http://localhost:9999");
         String planningDate = searchDate(300);
 
-        $("[data-test-id=\"city\"] input.input__control").setValue("Moscow");
-        $("[placeholder=\"Дата встречи\"]").doubleClick().sendKeys(Keys.DELETE);
-        $("[placeholder=\"Дата встречи\"]").setValue(planningDate);
+        $("[data-test-id=\"city\"] input.input__control").setValue("Казань");
+        $("[data-test-id=\"date\"] input.input__control").doubleClick().doubleClick().sendKeys(Keys.DELETE);
+        $("[data-test-id=\"date\"] input.input__control").setValue(planningDate);
         $("[data-test-id=\"name\"] input.input__control").setValue("Андрей Андрей-Андрей");
         $("[data-test-id=\"phone\"] input.input__control").setValue("+79301111111");
         $("[data-test-id=\"agreement\"] span.checkbox__box").click();
