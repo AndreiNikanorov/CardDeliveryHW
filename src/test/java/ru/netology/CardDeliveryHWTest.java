@@ -22,11 +22,11 @@ public class CardDeliveryHWTest {
 
     @Test
     void shouldSend() {
-//        Configuration.holdBrowserOpen=true;
+        Configuration.holdBrowserOpen=true;
         open("http://localhost:9999");
         String planningDate = searchDate(300);
 
-        $("[data-test-id=\"city\"] input.input__control").setValue("Петропавловск-Камчатский");
+        $("[data-test-id=\"city\"] input.input__control").setValue("Москва");
         $("[placeholder=\"Дата встречи\"]").doubleClick().sendKeys(Keys.DELETE);
         $("[placeholder=\"Дата встречи\"]").setValue(planningDate);
         $("[data-test-id=\"name\"] input.input__control").setValue("Андрей Андрей-Андрей");
