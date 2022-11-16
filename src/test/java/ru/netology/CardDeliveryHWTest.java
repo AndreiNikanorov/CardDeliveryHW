@@ -27,7 +27,7 @@ public class CardDeliveryHWTest {
         String planningDate = searchDate(300);
 
         $x("//input[contains(@placeholder,\"Город\")]").setValue("Кострома");
-        $x("//input[contains(@placeholder,\"Дата встречи\")]").sendKeys(Keys.COMMAND + "A");
+        $x("//input[contains(@placeholder,\"Дата встречи\")]").sendKeys(Keys.CONTROL + "A");
         $x("//input[contains(@placeholder,\"Дата встречи\")]").sendKeys(Keys.DELETE);
         $x("//input[contains(@placeholder,\"Дата встречи\")]").setValue(planningDate);
         $x("//*[@name='name']").setValue("Андрей Андрей-Андрей");
