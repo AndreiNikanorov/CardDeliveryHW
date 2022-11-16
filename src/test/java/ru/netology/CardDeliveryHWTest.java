@@ -26,13 +26,14 @@ public class CardDeliveryHWTest {
         open("http://localhost:9999");
         String planningDate = searchDate(300);
 
-        $("[data-test-id=\"city\"] input.input__control").setValue("Казань");
-        $("[data-test-id=\"date\"] input.input__control").doubleClick().doubleClick().sendKeys(Keys.DELETE);
-        $("[data-test-id=\"date\"] input.input__control").setValue(planningDate);
-        $("[data-test-id=\"name\"] input.input__control").setValue("Андрей Андрей-Андрей");
-        $("[data-test-id=\"phone\"] input.input__control").setValue("+79301111111");
-        $("[data-test-id=\"agreement\"] span.checkbox__box").click();
-        $("[type=\"button\"].button").click();
+        $x("//input[contains(@placeholder,\"Город\")]").setValue("Кострома");
+        $x("//input[contains(@placeholder,\"Дата встречи\")]").sendKeys(Keys.COMMAND + "A");
+        $x("//input[contains(@placeholder,\"Дата встречи\")]").sendKeys(Keys.DELETE);
+        $x("//input[contains(@placeholder,\"Дата встречи\")]").setValue(planningDate);
+        $x("//*[@name='name']").setValue("Андрей Андрей-Андрей");
+        $$("[type='tel']").last().setValue("+79711253871");
+        $(".checkbox").click();
+        $$(".button").last().click();
         $(".notification__content")
                 .shouldHave(Condition.text("Встреча успешно забронирована на " + planningDate), Duration.ofSeconds(15))
                 .shouldBe(Condition.visible);
